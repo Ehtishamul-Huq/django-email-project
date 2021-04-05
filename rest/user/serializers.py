@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from user.models import User, UserProfile
-
+import uuid
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import update_last_login
 from rest_framework_jwt.settings import api_settings
@@ -40,6 +40,7 @@ class UserLoginSerializer(serializers.Serializer):
     email = serializers.CharField(max_length=255)
     password = serializers.CharField(max_length=128, write_only=True)
     token = serializers.CharField(max_length=255, read_only=True)
+    id = serializers.UUIDField(required=False)
 
     def validate(self, data):
         email = data.get("email", None)
@@ -59,7 +60,7 @@ class UserLoginSerializer(serializers.Serializer):
             )
         return {
             'email':user.email,
-            'token': jwt_token
+            'token': jwt_token.access_token
         }
 
 class ForgotSerializer(serializers.ModelSerializer):

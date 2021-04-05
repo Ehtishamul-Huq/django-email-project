@@ -19,6 +19,7 @@ class Experience(models.Model):
 
 class Education(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    degree = models.CharField(max_length=100, unique=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    degree = models.CharField(max_length=100)
     start_date = models.DateField(blank=True)
     end_date = models.DateField(blank=True)

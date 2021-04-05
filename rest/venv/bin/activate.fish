@@ -29,7 +29,7 @@ end
 # unset irrelevant variables
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/home/ebabu/medium/django-rest-app/rest/venv"
+set -gx VIRTUAL_ENV "/home/ebabu/Desktop/djangorest-email-verification/rest/venv"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH

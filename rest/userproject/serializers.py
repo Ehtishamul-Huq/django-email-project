@@ -5,7 +5,18 @@ from django.contrib.auth import authenticate
 class ProjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = Project
-        fields = ('id', 'title', 'start_date', 'end_date')
+        fields = ('id', 'user', 'title', 'start_date', 'end_date')
+
+
+
+
+
+
+
+
+
+
+
 
 class ExperienceSerializer(serializers.ModelSerializer):
     class Meta:
@@ -15,7 +26,7 @@ class ExperienceSerializer(serializers.ModelSerializer):
 class EducationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Education
-        fields = ('id', 'degree', 'start_date', 'end_date')
+        fields = ('id', 'user', 'degree', 'start_date', 'end_date')
 
 class GetProjectSerializer(serializers.ModelSerializer):
     class Meta:

@@ -47,7 +47,6 @@ class UserLoginView(RetrieveAPIView):
         
         obj = User.objects.get(email=request.data['email'])
         user_serializer = UserSerializer(obj.profile)
-
         return Response({
             'success' : 'True',
             'status code' : status.HTTP_200_OK,
